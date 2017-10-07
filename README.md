@@ -34,7 +34,7 @@ The project description proposes to use handcrafted features like color histogra
 
 The input of the neural network is an image with a resolution of 64x64 pixels. The output is a number between 0 and 1 indicating if the image contains a car or not.
 
-** Layers: **
+**Layers:**
 * Conv Layer with size (3,3) and depth 8 with an RELU activation
 * Conv Layer with size (3,3) and depth 8 with an RELU activation
 * Max Pooling Layer with size (2,2)
@@ -112,17 +112,17 @@ I loop over all boxes found from the heat map. Assume to have a fixed box B. I c
 
 Update the believe of this C by the following formula  (Note: This formula converges to a belive of 1 if it is applied multiple times): <br><br>
 
-<center>Believe of C $ = 0.95 * $ Belive of C $ + 0.05$</center>
+<center>Believe of C = 0.95 * Belive of C + 0.05</center>
 
 Further, I update the box of C:
 
-<center>Box of C$ = 0.9 * $ Box of C $ + 0.1 * $ Box </center> <br><br>
+<center>Box of C = 0.9 * Box of C + 0.1 * Box </center> <br><br>
 
 If Box B was not close enough to any existing `car` object. I create a new `car` object with box B and belive of 0.05.  
 
 Further, I check for all existing `car` objects C if a box was found which is close to C. If this is not the case the believe of C is updated: <br><br>
 
-<center> Believe of C $ = 0.975 * $ Belive of C </center>
+<center> Believe of C = 0.975 * Belive of C </center>
 
 
 ## Result
