@@ -103,19 +103,13 @@ During the processing of the video a list is maintained which contains all curre
 
 I loop over all boxes found from the heat map. Assume to have a fixed box B. I compute the euclidean distance of B to the boxes of all existing `car` objects. If the box of one `car` object C is sufficiently close, I do the following: 
 
-Update the believe of this C by the following formula  (Note: This formula converges to a belive of 1 if it is applied multiple times): <br><br>
+Update the believe of this C by the following formula  (Note: This formula converges to a belive of 1 if it is applied multiple times): Believe of C = 0.95 * Belive of C + 0.05
 
-<center>Believe of C = 0.95 * Belive of C + 0.05</center>
-
-Further, I update the box of C:
-
-<center>Box of C = 0.9 * Box of C + 0.1 * Box </center> <br><br>
+Further, I update the box of C: Box of C = 0.9 * Box of C + 0.1 * Box
 
 If Box B was not close enough to any existing `car` object. I create a new `car` object with box B and belive of 0.05.  
 
-Further, I check for all existing `car` objects C if a box was found which is close to C. If this is not the case the believe of C is updated: <br><br>
-
-<center> Believe of C = 0.975 * Belive of C </center>
+Further, I check for all existing `car` objects C if a box was found which is close to C. If this is not the case the believe of C is updated: Believe of C = 0.975 * Belive of C 
 
 
 ## Result
