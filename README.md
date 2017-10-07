@@ -55,19 +55,15 @@ The input of the neural network is an image with a resolution of 64x64 pixels. T
 
 The complete data set contains 8792 images of cars and 8968 images without cars. I used 20% of the data as validation set. The images are normalized by substracting the mean from each color channel. The adam update rule is used to update the weights. The network is trained for 20 epochs which took less then 200 seconds. As finial model we selected the model after epoch 16, since it performed best on the validation set. 
 
-
 ### Neural network - Performance
 
 The final network achieves on the validation set a loss of 0.0146 and an accuracy of 99.66% (similar performance is found on the training set: loss of 0.0127 and an accuracy of 99.62%).
-
 
 ## Sliding Window Search
 
 I used the sliding window algorithm, which was build during the lecture (I slightly modified the algorithm to provide also windows at the right border of the image). The windows are slided from left to right and from half of the image to the bottom. I used several parameters for the sliding window search. The best results could be obtained with the following values. The size of the sliding window is set to 128 pixels in the x direction and 64 pixels in the y direction. The windows overlap with 60% in both directions. In the next picture I have drawn all windows over which is searched.
 
 ![alt text][image1]
-
----
 
 
 ## Heat Map
@@ -98,9 +94,6 @@ As long as a pixel with value greater than 70 is contained in the heat map, do t
 Note: All small boxes with size less than 1000 pixels are discarded.
 
 ![alt text][image4]
-
-
-
 
 ## Finding Cars from Boxes
 
@@ -133,7 +126,7 @@ Have a look at my [final result](./project_solution.mp4).
 
 ---
 
-### Discussion
+## Discussion
 
 The pipeline fails to identifies cars correctly if they overlap on the image. This is due to the representation of a car as a 2 dimensional box object. For an improved pipeline which can also handle such cases it is necessary to create a 3 dimensional environment of the car but this is beyond the scope of this project.
 
